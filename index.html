@@ -78,6 +78,15 @@
       100% { top: 100vh; opacity: 0; }
     }
 
+    #skyImage {
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+#skyImage.visible {
+  opacity: 1;
+}
+
     /* Répartition aléatoire des roses */
     .rose:nth-child(1) {
       left: 10%;
@@ -137,7 +146,6 @@
   <h1>Pour toi, Nono 🌹</h1>
   <p>J'ai créé cette carte, car je ne savais pas comment t'exprimer tout ce que je ressens pour toi, depuis que je t'ai rencontrée.</p>
   <br>
-  <img src="nonoxyuro.png" alt="dessinpournono" width="700" style="margin-top: 30px;">
   <button onclick="showMessage()">Clique ici</button>
 
   <div class="message" id="hiddenMessage">
@@ -148,6 +156,7 @@
     Je t'aime, Nowelly 💖
   </div>
 
+  <img id="skyImage" src="nonoxyuro.png" alt="Ciel étoilé" style="display: none; margin-top: 20px; max-width: 90%; border-radius: 16px;">
 
 
   <!-- Pluie de roses -->
@@ -171,6 +180,7 @@
 
   <script>  
   
+  
     function showMessage() {
       document.getElementById('hiddenMessage').style.display = 'block';
     }
@@ -180,6 +190,15 @@
 document.body.addEventListener("click", () => {
   audio.play();
 }, { once: true });
+
+function showMessage() {
+  document.getElementById('hiddenMessage').style.display = 'block';
+  const img = document.getElementById('skyImage');
+  img.style.display = 'block';
+  setTimeout(() => {
+    img.classList.add('visible');
+  }, 100); // Petit délai pour déclencher la transition
+}
   </script>
 </body>
 </html>
