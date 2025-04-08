@@ -3,183 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pour Nowelly  🌹</title>
+  <meta name="description" content="Un petit cadeau pour toi ✨">
+  <meta property="og:image" content="gift.png">
+  <title>Un cadeau pour toi 🎁</title>
   <style>
-    body {
-      margin: 0;
+    * {
       padding: 0;
-      background: linear-gradient(#300016, #600030);
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: radial-gradient(#ffe0f0, #ffb6c1);
+      height: 100vh;
+      width: 100vw;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      overflow-y: auto;
-      padding: 30px;
-      position: relative;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
     }
 
-    h1 {
-      font-size: 3em;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    p {
-      font-size: 1.3em;
-      max-width: 600px;
-      margin-top: 20px;
-      animation: fadeIn 3s ease-in-out;
-    }
-
-    button {
-      margin-top: 30px;
-      padding: 10px 20px;
-      font-size: 1em;
-      border: none;
-      border-radius: 8px;
-      background-color: #ff477e;
-      color: white;
+    .gift {
       cursor: pointer;
-      transition: background 0.3s;
+      width: 200px;
+      transition: transform 0.3s ease;
     }
 
-    button:hover {
-      background-color: #ff1a5c;
+    .gift:hover {
+      transform: scale(1.1) rotate(3deg);
     }
 
-    .message {
-      display: none;
-      margin-top: 30px;
-      font-size: 1.2em;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Pluie de roses */
-    .rose {
+    .credits {
       position: absolute;
-      top: -50px;
-      width: 25px;
-      height: 25px;
-      background-image: url('pétale.png'); /* Ton image de pétale */
-      background-size: cover;
-      animation: tomber 4s linear infinite;
+      bottom: 10px;
+      font-size: 0.8rem;
+      color: #9c3a5c;
     }
-
-    @keyframes tomber {
-      0% { top: -50px; opacity: 1; }
-      100% { top: 100vh; opacity: 0; }
-    }
-
-    /* Répartition aléatoire des roses */
-    .rose:nth-child(1) {
-      left: 10%;
-      animation-duration: 6s;
-      animation-delay: 0s;
-    }
-    .rose:nth-child(2) {
-      left: 20%;
-      animation-duration: 5s;
-      animation-delay: 1s;
-    }
-    .rose:nth-child(3) {
-      left: 30%;
-      animation-duration: 7s;
-      animation-delay: 2s;
-    }
-    .rose:nth-child(4) {
-      left: 40%;
-      animation-duration: 6s;
-      animation-delay: 3s;
-    }
-    .rose:nth-child(5) {
-      left: 50%;
-      animation-duration: 5s;
-      animation-delay: 4s;
-    }
-    .rose:nth-child(6) {
-      left: 60%;
-      animation-duration: 6s;
-      animation-delay: 1s;
-    }
-    .rose:nth-child(7) {
-      left: 70%;
-      animation-duration: 7s;
-      animation-delay: 2s;
-    }
-    .rose:nth-child(8) {
-      left: 80%;
-      animation-duration: 5s;
-      animation-delay: 3s;
-    }
-    .rose:nth-child(9) {
-      left: 90%;
-      animation-duration: 6s;
-      animation-delay: 4s;
-    }
-    .rose:nth-child(10) {
-      left: 5%;
-      animation-duration: 5s;
-      animation-delay: 2s;
-    }
-
-    /* On peut ajouter encore plus de roses en dupliquant ces règles */
   </style>
 </head>
 <body>
-  <h1>Pour toi, Nono 🌹</h1>
-  <p>J'ai créé cette carte, car je ne savais pas comment t'exprimer tout ce que je ressens pour toi, depuis que je t'ai rencontrée.</p>
-  <br>
-  <img src="nonoxyuro.png" alt="dessinpournono" width="700" style="margin-top: 30px;">
-  <button onclick="showMessage()">Clique ici</button>
+  <a href="Nowellypage.html">
+    <img src="gift.png" alt="Clique pour découvrir ton cadeau" class="gift">
+  </a>
 
-  <div class="message" id="hiddenMessage">
-    <h3>🌹 Voici ma surprise pour toi !🌹<br> </h3>
-    <br>
-    Même si on est loin, je pense à toi chaque jour.<br>
-    Et j'espère qu'un jour, je pourrai te serrer fort contre moi… et que plus rien ne pourra nous séparer.<br> 
-    Je t'aime, Nowelly 💖
-  </div>
-
-
-
-  <!-- Pluie de roses -->
-  <div class="rose"></div>
-  <div class="rose"></div>
-  <div class="rose"></div>
-  <div class="rose"></div>
-  <div class="rose"></div>
-  <div class="rose"></div>
-  <div class="rose"></div>
-  <div class="rose"></div>
-  <div class="rose"></div>
-  <div class="rose"></div>
-
-
-  <audio id="bg-music" autoplay loop controls style="display: none;">
-    <source src="musique-romantique.mp3" type="audio/mp3">
-    Ton navigateur ne supporte pas la lecture audio.
-  </audio>
-  
-
-  <script>  
-  
-    function showMessage() {
-      document.getElementById('hiddenMessage').style.display = 'block';
-    }
-
-    const audio = document.getElementById("bg-music");
-
-document.body.addEventListener("click", () => {
-  audio.play();
-}, { once: true });
-  </script>
+  <div class="credits">Clique sur le cadeau 💝</div>
 </body>
 </html>
